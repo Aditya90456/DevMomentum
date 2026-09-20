@@ -1,423 +1,163 @@
-# DevMomentum
+# MomentumForge
 
 **Turn daily effort into placement-ready progress.**
 
-A premium, fully interactive placement-preparation planner built with pure HTML, CSS, and vanilla JavaScript — designed to feel like a modern productivity SaaS product rather than a static checklist or PDF.
+A premium, fully interactive placement-preparation planner built with pure HTML, CSS, and vanilla JavaScript — designed to feel like a modern productivity SaaS product (in the spirit of Notion, Linear, and Todoist) rather than a static checklist or PDF.
 
 ---
 
 ## ✨ Project Description
 
-DevMomentum turns a static study roadmap into a living, data-driven web app.
+MomentumForge turns a static study roadmap into a living, data-driven web app. Every task, date, category, tip, warning, and timeline milestone is loaded dynamically from a single `roadmap.json` file — nothing is hardcoded into the HTML or JavaScript. Swap in a new `roadmap.json` and the entire app (dashboard, daily/weekly/monthly views, statistics, timeline) reflects the new plan automatically.
 
-Every task, date, category, tip, warning, and timeline milestone is loaded dynamically from a single `roadmap.json` file. Nothing is hardcoded into the HTML or JavaScript.
-
-Replace the contents of `roadmap.json` with a different roadmap and the entire application — dashboard, daily view, weekly view, monthly view, statistics, timeline, warnings, and printable planner — automatically reflects the new plan.
-
-The application tracks DSA, Development, DSA-Sheet, and Revision tasks while automatically calculating daily, weekly, monthly, and overall progress.
-
-DevMomentum also includes an automatic scheduling system. Tasks can be rescheduled, reordered, completed, edited, duplicated, or deleted while keeping the rest of the roadmap synchronized.
+The app tracks daily DSA, Development, DSA-Sheet, and Revision tasks, auto-calculates weekly/monthly/overall progress from daily completions, and includes an automatic rescheduling engine: mark a task for a new date and every task scheduled afterward shifts by the same number of days — no manual re-entry required.
 
 ---
 
 ## 🎨 Design System
 
-DevMomentum uses a professional blue-based SaaS design system focused on clarity, consistency, and productivity.
+MomentumForge uses a single-hue, all-blue professional palette — no secondary accent colors — for a clean, corporate-SaaS feel:
 
 | Token | Hex | Use |
 |---|---|---|
 | Background | `#FFFFFF` | Page background |
-| Surface | `#F4F7FB` | Cards and panels |
-| Border | `#E1E8F1` | Borders and dividers |
-| Primary | `#123A66` | Headings and primary buttons |
+| Surface | `#F4F7FB` | Cards, panels |
+| Border | `#E1E8F1` | Card borders, dividers |
+| Primary | `#123A66` | Headings, primary buttons, ring charts |
 | Primary Light | `#1F5691` | Hover states |
-| Accent | `#2E75D6` | Interactive highlights and links |
-| Text | `#1C2B3A` | Main content |
-| Text Muted | `#63758A` | Secondary content |
+| Accent | `#2E75D6` | Interactive highlights, active states, links |
+| Text | `#1C2B3A` | Body copy |
+| Text Muted | `#63758A` | Secondary copy |
 | Success | `#2E9E6B` | Completed states |
 | Warning | `#D98324` | Warning cards |
-| Danger | `#D1495B` | Overdue and destructive actions |
+| Danger | `#D1495B` | Destructive actions |
 
-A matching dark theme uses lighter blue tones against a near-navy background.
-
-The selected theme is persisted using Local Storage.
+A matching dark theme swaps these for lighter blue tones on a near-navy background, toggled from the navbar and persisted in Local Storage.
 
 ---
 
 ## 🚀 Features
 
-### 📅 Core Planning
-
-- **Dynamic data model** — tasks, dates, categories, difficulty, priority, tips, warnings, scheduling information, and timeline milestones are loaded from `roadmap.json`
-- **Daily / Weekly / Monthly / Statistics views** — all views remain synchronized with task completion
-- **Missed-task auto-rollover** — incomplete tasks automatically appear in the current workload
-- **Overdue tracking** — missed tasks display the number of days they are overdue
-- **Accountability messages** — rotating messages encourage users to complete overdue work
-- **Automatic scheduling engine** — reschedule tasks to tomorrow, next week, or a custom date
-- **Automatic task shifting** — subsequent tasks can shift according to scheduling rules
-- **Drag-and-drop reordering** — reorder tasks within a day
-- **Task management** — add, edit, duplicate, reschedule, and delete tasks
-- **Smart warning cards** — demanding topics can automatically display additional preparation guidance
-- **Smart Time Management** — recommended weekday and weekend study-hour allocation is loaded from JSON
-
----
-
-### 📊 Dashboard & Insights
-
-- Today's task count
-- Weekly completion percentage
-- Monthly completion percentage
-- Overall roadmap completion
-- Completed task count
-- Pending task count
-- Current streak
-- Longest streak
-- XP and current level
-- Daily tips
-- Coding tips
-- Interview tips
-- Placement tips
-- Category completion chart
-- Overall completion ring chart
-- Interactive roadmap timeline
-- Clickable timeline milestones
-
-All progress values are calculated from the application's actual task state.
-
----
-
-### 🎯 Productivity Features
-
-#### Theme Toggle
-
-Switch between:
-
-- Light theme
-- Dark theme
-
-The selected theme persists between sessions.
-
-The application can also respect the user's system preference on the first visit.
-
-#### Command Palette
-
-Quickly search the roadmap using:
-
-`Ctrl + K`
-
-on Windows/Linux or:
-
-`Cmd + K`
-
-on macOS.
-
-#### Floating Action Button
-
-Provides quick access to common actions such as:
-
-- Add Task
-- Open Command Palette
-- Scroll to Top
-
-#### Scroll to Top
-
-A smooth scroll-to-top control improves navigation on long roadmap pages.
-
-#### Confetti Interaction
-
-A lightweight confetti interaction appears when all tasks for a day are completed.
-
-#### Completion Certificate
-
-A certificate modal appears when the complete roadmap has been finished.
-
-#### XP & Level System
-
-Completed tasks award XP according to task difficulty.
-
-The level system progresses from:
-
-**Level 1 → Level 100**
-
----
-
-### 🖨️ Printable Planner
-
-DevMomentum includes a dedicated printable planner rather than simply printing the existing application interface.
-
-Users can choose:
-
-- Today's Tasks
-- This Week
-- Full Roadmap
-
-The generated planner includes:
-
-- DevMomentum branding
-- Progress summary
-- Task information
-- Dates
-- Checkbox-style task tracking
-- Tasks grouped by day
-
-The browser's print dialog can be used to save the planner as a PDF.
-
-#### How to Use
-
-1. Open **Settings**.
-2. Select **Printable Planner**.
-3. Select the required scope.
-4. Click **Print / Export PDF**.
-5. Select **Save as PDF** in the browser print dialog.
-
----
-
-### 💾 Backup & Restore
-
-DevMomentum allows users to export their local application data as JSON.
-
-Backup information can include:
-
-- Task completion
-- Notes
-- Streaks
-- Rescheduled tasks
-- Progress
-- Preferences
-
-The exported JSON can later be imported to restore the saved state.
-
----
-
-### ⌨️ Keyboard Shortcuts
-
-| Shortcut | Action |
-|---|---|
-| `Ctrl/Cmd + K` | Open Command Palette |
-| `T` | Toggle theme |
-| `1–5` | Navigate between major sections |
-| `Esc` | Close dialogs |
-
----
-
-## 🧠 Technical Architecture
-
-DevMomentum intentionally uses a lightweight architecture without frontend frameworks or build tools.
-
-The roadmap content is separated from the application logic.
-
-The basic data flow is:
-
-    roadmap.json
-         ↓
-    Data Loading
-         ↓
-    Application State
-         ↓
-    Rendering Engine
-         ↓
-    Dashboard / Daily / Weekly / Monthly / Statistics
-         ↓
-    User Interaction
-         ↓
-    Updated State
-
-This architecture allows the same application to support different preparation roadmaps without rewriting the core interface.
-
----
-
-## 🛠️ Technologies Used
-
-| Layer | Technology |
-|---|---|
-| Structure | Semantic HTML5 |
-| Styling | CSS3 |
-| Layout | CSS Grid, Flexbox |
-| Behavior | Vanilla JavaScript (ES6+) |
-| Data | JSON |
-| Persistence | Browser Local Storage |
-| Charts | Custom CSS and JavaScript |
-| Fonts | Google Fonts — Poppins and Inter |
-
-### No Framework Dependency
-
-DevMomentum does not require:
-
-- React
-- Vue
-- Angular
-- jQuery
-- Tailwind CSS
-- Bootstrap
-- Firebase
-
-No build system or bundler is required.
+### Core Planning
+- **Dynamic data model** — all tasks, dates, categories, difficulty, priority, tips, warnings, smart-schedule numbers, and timeline milestones are read from `roadmap.json`
+- **Daily / Weekly / Monthly / Statistics** tabs, fully interconnected — completing a daily task instantly updates weekly, monthly, and overall progress
+- **Missed-task auto-rollover** — if a task isn't completed by the end of its day, it automatically moves onto today's list — no manual rescheduling needed just because you ran out of time. It's tagged with a danger-red banner showing exactly how many days overdue it is (this count keeps climbing correctly even if the app isn't opened for several days) and a rotating, no-excuses accountability message. A summary banner at the top of the Daily view flags the total when there's more than one. Clearing it is simple: finish the task, or use the reschedule button to explicitly move it and reset the count.
+- **Auto-scheduling engine** — reschedule any task to tomorrow, next week, or a custom date, and every task on or after it shifts automatically
+- **Drag-and-drop reordering** within a day
+- **Add / Edit / Duplicate / Delete** for every task
+- **Smart warning cards** — topics like Recursion, Graphs, Dynamic Programming, Trees, React, and Backend Mega Project automatically surface an "extra time required" card when they appear in the current view
+- **Smart Time Management panel** — recommended weekday/weekend hour allocation, sourced from JSON
+
+### Dashboard & Insights
+- Live stat cards: today's tasks, weekly/monthly/overall completion, current & longest streak, completed/pending counts
+- Daily tip, interview tip, coding tip, and placement tip — rotate daily, sourced from JSON
+- Pure-CSS/JS bar chart (category completion) and donut/ring chart (overall completion) — **no chart libraries**
+- Vertical interactive roadmap timeline, clickable milestones
+
+### Experience & Polish
+- **Theme toggle** — animated sun/moon switch, persisted in Local Storage, respects system preference on first load
+- **Custom cursor** — a "focus bracket" viewfinder design: four L-shaped corner marks frame the pointer like a camera locking onto its subject, with a precise center dot. The core dot tracks the pointer with zero lag; the bracket frame trails with light, GPU-composited easing (`translate3d`, not `left`/`top`) so it stays smooth at 60fps. The frame breathes outward and rotates slightly on hover, snaps inward on click with a soft focus-lock flash — no generic ripple bursts. Automatically disabled on touch devices.
+- **Command palette** (`Ctrl/Cmd + K`) — instant task search across the whole roadmap
+- **Floating Action Button** with quick actions (Add Task / Command Palette / Scroll to Top)
+- **Scroll-to-top** button with smooth fade/slide
+- **Confetti micro-interaction** when a full day's tasks are completed, and a **certificate modal** when the entire roadmap is finished
+- **XP + Level system** (Level 1 → 100) awarded per completed task by difficulty
+- **Branded Print / Export PDF** — Settings → Printable Planner builds a dedicated, letter-formatted document (not just a stripped-down copy of the on-screen UI): a MomentumForge letterhead, a stats summary strip, and a clean checkbox task table. Choose the scope — **Today**, **This Week**, or **Full Roadmap** — then print or "Save as PDF" from the browser's print dialog.
+- **Backup & Restore** — export all progress/notes/streaks as JSON, re-import anytime
+- Keyboard shortcuts: `Ctrl/Cmd+K` search, `T` theme toggle, `1–5` section jump, `Esc` close dialogs
+
+### Technical
+- 100% Vanilla JS — no React/Vue/Angular/jQuery/Firebase/Tailwind/Bootstrap
+- Fully responsive: mobile, tablet, desktop, large screens
+- Local Storage persistence for tasks, notes, theme, streaks, and reschedules — survives refresh
+- Accessible: skip link, ARIA roles/labels on tabs and controls, keyboard-navigable, high-contrast palette
 
 ---
 
 ## 📁 Folder Structure
 
-    devmomentum/
-    ├── index.html
-    ├── style.css
-    ├── script.js
-    ├── roadmap.json
-    ├── assets/
-    │   └── icons/
-    ├── README.md
-    ├── WIDGET.md
-    └── CONTRIBUTING.md
-
-### File Responsibilities
-
-| File | Purpose |
-|---|---|
-| `index.html` | Application shell and semantic markup |
-| `style.css` | Design system, themes, responsive styles, and animations |
-| `script.js` | Application logic, rendering, state management, and interactions |
-| `roadmap.json` | Tasks, tips, warnings, timeline, and scheduling data |
-| `WIDGET.md` | Documentation for application widgets |
-| `CONTRIBUTING.md` | Contribution guidelines |
+```
+momentumforge/
+├── index.html          # App shell & semantic markup
+├── style.css            # Full design system, theme variables, responsive rules, animations
+├── script.js             # All application logic (data loading, rendering, state, interactions)
+├── roadmap.json         # ALL roadmap data — tasks, tips, warnings, timeline, schedule
+├── assets/
+│   ├── images/          # (placeholder for future custom imagery)
+│   └── icons/           # (placeholder for future custom icons)
+└── README.md
+```
 
 ---
 
-## 🔄 Reusing DevMomentum for Another Roadmap
+## 🎨 Technologies Used
 
-DevMomentum is designed to be reusable.
+| Layer      | Technology                          |
+|------------|--------------------------------------|
+| Structure  | Semantic HTML5                       |
+| Styling    | CSS3 (custom properties, Grid, Flexbox, keyframe animations) |
+| Behavior   | Vanilla JavaScript (ES6+)            |
+| Fonts      | Google Fonts — Poppins (headings), Inter (body) |
+| Data       | Static JSON (`roadmap.json`), Local Storage for persistence |
 
-Replace the contents of:
-
-`roadmap.json`
-
-with your own roadmap while maintaining the supported data structure.
-
-The roadmap can contain sections such as:
-
-- `meta`
-- `quotes`
-- `tips`
-- `warnings`
-- `smartSchedule`
-- `timeline`
-- `tasks`
-- `notes`
-
-Once the new roadmap is loaded, the application can automatically update:
-
-- Dashboard
-- Daily view
-- Weekly view
-- Monthly view
-- Statistics
-- Progress calculations
-- Warning cards
-- Timeline
-- Scheduling information
-- Printable planner
-
-This data-driven approach allows the application logic to remain separate from the roadmap content.
+No build tools, bundlers, or frameworks required.
 
 ---
 
-## 🌱 Open Source Contribution Areas
+## 🖥️ Installation & How to Run
 
-DevMomentum provides multiple areas where contributors can contribute.
+Because the app fetches `roadmap.json` via the Fetch API, it must be served over `http://` rather than opened directly as a `file://` URL (browsers block local JSON fetches from the file system for security reasons).
 
-### Frontend
+**Option 1 — Python (built into most systems):**
+```bash
+cd momentumforge
+python3 -m http.server 8000
+```
+Then open `http://localhost:8000` in your browser.
 
-- UI/UX improvements
-- Responsive design
-- Accessibility improvements
-- Animations
-- Interaction improvements
-- Theme improvements
+**Option 2 — Node.js:**
+```bash
+npx serve momentumforge
+```
 
-### Application Logic
+**Option 3 — VS Code:**
+Install the "Live Server" extension, right-click `index.html`, and choose "Open with Live Server."
 
-- Scheduling engine
-- Progress calculations
-- Streak calculations
-- XP and level system
-- Task management
-- Search functionality
+---
 
-### Data
+## 📄 Using Print / Export PDF
 
-- Roadmap validation
-- JSON schema improvements
-- Import/export improvements
-- Data consistency
+1. Go to **Settings → Printable Planner**.
+2. Choose a scope: **Today's Tasks**, **This Week**, or **Full Roadmap**.
+3. Click **Print / Export PDF** — the browser's print dialog opens with a clean, branded document (MomentumForge letterhead, summary stats, and a checkbox task table grouped by day).
+4. In the print dialog, choose **Save as PDF** as the destination to export a file instead of printing on paper.
 
-### Performance
+---
 
-- Rendering optimization
-- DOM optimization
-- Local Storage optimization
-- Reduced unnecessary calculations
+## 🔄 Reusing This Planner for a Different Roadmap
 
-### Documentation
-
-- README improvements
-- Widget documentation
-- Contribution documentation
-- Developer documentation
-- User guides
-
-### Quality
-
-- Bug fixes
-- Testing
-- Cross-browser improvements
-- Accessibility testing
+Replace the contents of `roadmap.json` with your own data (same schema: `meta`, `quotes`, `tips`, `warnings`, `smartSchedule`, `timeline`, `tasks`, `notes`) and the entire application — dashboard, daily/weekly/monthly views, statistics, warning cards, timeline, and the printable document — updates automatically. No HTML, CSS, or JS changes needed.
 
 ---
 
 ## 🔭 Future Improvements
 
-Potential future enhancements include:
-
-- Cloud synchronization
-- Cross-device persistence
-- Firebase or Supabase integration
-- Native PDF generation
-- Recurring task templates
-- Multiple roadmap support
-- Roadmap switching
-- Browser notifications
-- Upcoming-task reminders
-- Collaborative roadmaps
-- Study-group functionality
-- Advanced analytics
-- Optional chart-library integration
-- User accounts and authentication
-- Automated testing
+- Cloud sync (Firebase/Supabase) for cross-device persistence
+- Native PDF export using a headless rendering library instead of browser print
+- Recurring/templated tasks (e.g. "every weekday at 9 AM")
+- Multi-roadmap support with a roadmap switcher in Settings
+- Push/browser notifications for upcoming tasks
+- Collaborative/shared roadmaps for study groups
+- Chart library integration (optional) for more advanced analytics
 
 ---
 
-## 🤝 Contributing
+## 📸 Screenshots
 
-Contributions are welcome.
-
-Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) before submitting changes.
+*(Add screenshots here once deployed — e.g. `assets/images/dashboard.png`, `assets/images/daily-view.png`, `assets/images/statistics.png`)*
 
 ---
 
-## 📜 License
+## 📄 License
 
-This project is intended to be developed as an open-source project.
-
-License details can be added according to the open-source license selected for the repository.
-
----
-
-## ⭐ Project Philosophy
-
-DevMomentum is built around a simple idea:
-
-**Consistent daily effort creates measurable progress.**
-
-The goal is to make placement preparation more structured, trackable, and sustainable while providing an enjoyable productivity experience.
-
----
-
-**DevMomentum — Plan consistently. Track progress. Build momentum.**
+Free to use and adapt for personal portfolio and educational purposes.
