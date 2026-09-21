@@ -1,4 +1,4 @@
-# MomentumForge
+# DevMomentum
 
 **Turn daily effort into placement-ready progress.**
 
@@ -8,7 +8,7 @@ A premium, fully interactive placement-preparation planner built with pure HTML,
 
 ## ✨ Project Description
 
-MomentumForge turns a static study roadmap into a living, data-driven web app. Every task, date, category, tip, warning, and timeline milestone is loaded dynamically from a single `roadmap.json` file — nothing is hardcoded into the HTML or JavaScript. Swap in a new `roadmap.json` and the entire app (dashboard, daily/weekly/monthly views, statistics, timeline) reflects the new plan automatically.
+DevMomentum turns a static study roadmap into a living, data-driven web app. Every task, date, category, tip, warning, and timeline milestone is loaded dynamically from a single `roadmap.json` file — nothing is hardcoded into the HTML or JavaScript. Swap in a new `roadmap.json` and the entire app (dashboard, daily/weekly/monthly views, statistics, timeline) reflects the new plan automatically.
 
 The app tracks daily DSA, Development, DSA-Sheet, and Revision tasks, auto-calculates weekly/monthly/overall progress from daily completions, and includes an automatic rescheduling engine: mark a task for a new date and every task scheduled afterward shifts by the same number of days — no manual re-entry required.
 
@@ -16,7 +16,7 @@ The app tracks daily DSA, Development, DSA-Sheet, and Revision tasks, auto-calcu
 
 ## 🎨 Design System
 
-MomentumForge uses a single-hue, all-blue professional palette — no secondary accent colors — for a clean, corporate-SaaS feel:
+DevMomentum uses a single-hue, all-blue professional palette — no secondary accent colors — for a clean, corporate-SaaS feel:
 
 | Token | Hex | Use |
 |---|---|---|
@@ -62,7 +62,7 @@ A matching dark theme swaps these for lighter blue tones on a near-navy backgrou
 - **Scroll-to-top** button with smooth fade/slide
 - **Confetti micro-interaction** when a full day's tasks are completed, and a **certificate modal** when the entire roadmap is finished
 - **XP + Level system** (Level 1 → 100) awarded per completed task by difficulty
-- **Branded Print / Export PDF** — Settings → Printable Planner builds a dedicated, letter-formatted document (not just a stripped-down copy of the on-screen UI): a MomentumForge letterhead, a stats summary strip, and a clean checkbox task table. Choose the scope — **Today**, **This Week**, or **Full Roadmap** — then print or "Save as PDF" from the browser's print dialog.
+- **Branded Print / Export PDF** — Settings → Printable Planner builds a dedicated, letter-formatted document (not just a stripped-down copy of the on-screen UI): a DevMomentum letterhead, a stats summary strip, and a clean checkbox task table. Choose the scope — **Today**, **This Week**, or **Full Roadmap** — then print or "Save as PDF" from the browser's print dialog.
 - **Backup & Restore** — export all progress/notes/streaks as JSON, re-import anytime
 - Keyboard shortcuts: `Ctrl/Cmd+K` search, `T` theme toggle, `1–5` section jump, `Esc` close dialogs
 
@@ -77,7 +77,7 @@ A matching dark theme swaps these for lighter blue tones on a near-navy backgrou
 ## 📁 Folder Structure
 
 ```
-momentumforge/
+DevMomentum/
 ├── index.html          # App shell & semantic markup
 ├── style.css            # Full design system, theme variables, responsive rules, animations
 ├── script.js             # All application logic (data loading, rendering, state, interactions)
@@ -110,14 +110,14 @@ Because the app fetches `roadmap.json` via the Fetch API, it must be served over
 
 **Option 1 — Python (built into most systems):**
 ```bash
-cd momentumforge
+cd DevMomentum
 python3 -m http.server 8000
 ```
 Then open `http://localhost:8000` in your browser.
 
 **Option 2 — Node.js:**
 ```bash
-npx serve momentumforge
+npx serve DevMomentum
 ```
 
 **Option 3 — VS Code:**
@@ -129,7 +129,7 @@ Install the "Live Server" extension, right-click `index.html`, and choose "Open 
 
 1. Go to **Settings → Printable Planner**.
 2. Choose a scope: **Today's Tasks**, **This Week**, or **Full Roadmap**.
-3. Click **Print / Export PDF** — the browser's print dialog opens with a clean, branded document (MomentumForge letterhead, summary stats, and a checkbox task table grouped by day).
+3. Click **Print / Export PDF** — the browser's print dialog opens with a clean, branded document (DevMomentum letterhead, summary stats, and a checkbox task table grouped by day).
 4. In the print dialog, choose **Save as PDF** as the destination to export a file instead of printing on paper.
 
 ---
